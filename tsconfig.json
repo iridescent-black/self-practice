@@ -1,0 +1,20 @@
+{
+  "include": ["./**/*.ts"],
+  "compilerOptions": {
+    "lib": ["esNext", "DOM"],
+
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "resolveJsonModule": true,
+    "module": "ESNext",
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

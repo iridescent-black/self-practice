@@ -7,41 +7,41 @@
 
 /** 获取数字数组中重复的元素 */
 function getDuplication(numbers: number[]): number[] | undefined {
-  if (!Array.isArray(numbers)) return void 0;
+  if (!Array.isArray(numbers)) return void 0
 
-  const length = numbers.length;
-  const duplication = new Set<number>();
+  const length = numbers.length
+  const duplication = new Set<number>()
 
   for (let i = 0; i < length; i += 1) {
-    const value = numbers[i];
+    const value = numbers[i]
     // 如果存在越界情况，认为是无效输入，直接返回 undefined
-    if (value < 0 || value > length - 1) return void 0;
-    if (value === i) continue;
+    if (value < 0 || value > length - 1) return void 0
+    if (value === i) continue
     if (value === numbers[value]) {
-      duplication.add(value);
+      duplication.add(value)
     }
-    swap(numbers, i, value);
+    swap(numbers, i, value)
   }
 
-  return Array.from(duplication);
+  return Array.from(duplication)
 }
 
 /** 交换数组元素 */
 function swap<T>(numbers: T[], i: number, j: number) {
-  const length = numbers.length;
-  if (i < 0 || i >= length || j < 0 || j >= length) return;
-  const temp = numbers[i];
-  numbers[i] = numbers[j];
-  numbers[j] = temp;
+  const length = numbers.length
+  if (i < 0 || i >= length || j < 0 || j >= length) return
+  const temp = numbers[i]
+  numbers[i] = numbers[j]
+  numbers[j] = temp
 }
 
 // 正常数据
-const numbers1 = [2, 3, 1, 0, 2, 5, 3];
+const numbers1 = [2, 3, 1, 0, 2, 5, 3]
 // 不包含重复数据
-const numbers2 = [2, 3, 1, 0, 4, 5, 6];
+const numbers2 = [2, 3, 1, 0, 4, 5, 6]
 // 越界数据
-const numbers3 = [2, 3, 1, 0, 2, 5, 8];
+const numbers3 = [2, 3, 1, 0, 2, 5, 8]
 
-console.log(getDuplication(numbers1));
-console.log(getDuplication(numbers2));
-console.log(getDuplication(numbers3));
+console.log(getDuplication(numbers1))
+console.log(getDuplication(numbers2))
+console.log(getDuplication(numbers3))
