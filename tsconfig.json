@@ -5,8 +5,9 @@
 
     "strict": true,
     "alwaysStrict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
 
     "moduleResolution": "node",
     "esModuleInterop": true,
