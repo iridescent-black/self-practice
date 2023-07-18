@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    'prettier', // Uses prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    'plugin:prettier/recommended', // eslint 支持 prettier 规则 && 添加报错提示
   ],
-  rules: {},
 }
