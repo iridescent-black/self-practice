@@ -1,6 +1,6 @@
 import { swap } from '../utils'
 
-function bubbleSort(arr: number[]) {
+export function bubbleSort(arr: number[]) {
   const arrLength = arr.length
   if (arrLength <= 1) return arr
   // i 代表第几轮排序，冒泡排序固定要进行 N 轮排序。
@@ -20,10 +20,54 @@ function bubbleSort(arr: number[]) {
   return arr
 }
 
-const arr1 = [5, 4, 3, 2, 1]
-const arr2 = [5, 2, 3, 4, 1]
-const arr3: number[] = []
+export function bubbleSort2(arr: number[]) {
+  const arrLength = arr.length
+  if (arrLength <= 1) return
 
-console.log(bubbleSort(arr1))
-console.log(bubbleSort(arr2))
-console.log(bubbleSort(arr3))
+  let i = arrLength - 1
+
+  while (i > 0) {
+    let pos = 0
+
+    // 每一轮冒泡都记录一下，最后一次发生交换的左指针索引值 pos。
+    // 如果没有发生过交换，pos 就是 0，不用再冒泡了，直接返回。
+    // 如果发送过交换，下一次冒泡时，右指针的最大值即为 pos。
+    for (let j = 0; j < i; j++) {
+      const leftValue = arr[j]
+      const rightValue = arr[j + 1]
+
+      if (typeof leftValue !== 'number') throw new Error(`arr Item[${j}] is not number`)
+      if (typeof rightValue !== 'number') throw new Error(`arr Item[${j}] is not number`)
+
+      if (leftValue > rightValue) {
+        pos = j
+        swap(arr, j, j + 1)
+      }
+    }
+
+    i = pos
+  }
+
+  return arr
+}
+
+// const arr2 = [5, 2, 3, 4, 1]
+// const arr3: number[] = []
+
+// console.log(bubbleSort2(arr1))
+// console.log(bubbleSort2(arr2))
+// console.log(bubbleSort2(arr3))
+
+console.time('bubbleSort1')
+for (let i = 0; i < 10000; i++) {
+  const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+  bubbleSort(arr1)
+}
+console.timeEnd('bubbleSort1')
+
+console.time('bubbleSort2')
+for (let i = 0; i < 10000; i++) {
+  const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+  bubbleSort2(arr1)
+}
+console.timeEnd('bubbleSort2')
