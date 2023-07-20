@@ -1,4 +1,4 @@
-import { swap } from './utils'
+import { swap } from '../utils'
 
 /** 快速排序 */
 function quickSort(arr: number[]): number[] {
