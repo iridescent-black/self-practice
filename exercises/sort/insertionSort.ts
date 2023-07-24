@@ -20,7 +20,7 @@ export function insertionSort(arr: number[]): number[] {
   return arr
 }
 
-export function insertionSort2(arr: number[]): number[] {
+export function binaryInsertionSort(arr: number[]): number[] {
   if (arr.length <= 1) return arr
   for (let i = 1; i < arr.length; i++) {
     const baseValue = arr[i]
@@ -28,12 +28,15 @@ export function insertionSort2(arr: number[]): number[] {
     const left = 0
     const right = i - 1
     const insertIndex = binaryFindIndex(arr, (value) => value <= baseValue, { left, right })
-    for (let i = right; i <= 0; i--) {
-      arr[i + 1] = arr[i]!
+    for (let j = right; j > insertIndex; j--) {
+      arr[j + 1] = arr[j]!
     }
     arr[insertIndex + 1] = baseValue
   }
   return arr
 }
 
-console.log(insertionSort(createMockNumberArray(100)))
+const mockData = createMockNumberArray(100)
+console.log(insertionSort(mockData.slice()))
+console.log(binaryInsertionSort(mockData.slice()))
+console.log(JSON.stringify(binaryInsertionSort(mockData.slice())) === JSON.stringify(insertionSort(mockData.slice())))

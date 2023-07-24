@@ -1,4 +1,4 @@
-import { swap } from '../utils'
+import { createMockNumberArray, swap } from '../utils'
 
 export function bubbleSort(arr: number[]) {
   const arrLength = arr.length
@@ -58,16 +58,24 @@ export function bubbleSort2(arr: number[]) {
 // console.log(bubbleSort2(arr2))
 // console.log(bubbleSort2(arr3))
 
+const sortedCount = 10000
+const arrayLength = 100
+const mockData = createMockNumberArray(arrayLength)
+
+console.time('clone')
+for (let i = 0; i < sortedCount; i++) {
+  mockData.slice()
+}
+console.timeEnd('clone')
+
 console.time('bubbleSort1')
-for (let i = 0; i < 10000; i++) {
-  const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
-  bubbleSort(arr1)
+for (let i = 0; i < sortedCount; i++) {
+  bubbleSort(mockData.slice())
 }
 console.timeEnd('bubbleSort1')
 
 console.time('bubbleSort2')
-for (let i = 0; i < 10000; i++) {
-  const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
-  bubbleSort2(arr1)
+for (let i = 0; i < sortedCount; i++) {
+  bubbleSort2(mockData.slice())
 }
 console.timeEnd('bubbleSort2')
