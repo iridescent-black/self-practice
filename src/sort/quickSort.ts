@@ -1,7 +1,7 @@
 import { swap } from '../utils'
 
 /** 快速排序 */
-function quickSort(arr: number[]): number[] {
+export function quickSort(arr: number[]): number[] {
   const result = arr.slice()
   if (result.length <= 1) return result
 
@@ -49,15 +49,3 @@ function quickSort(arr: number[]): number[] {
 
   return result
 }
-
-const arr1 = [1, 3, 5, 7, 9]
-const arr2 = [2, 6, 8, 4, 0]
-const arr3 = [5, 4, 3, 2, 1]
-const arr4 = [5, 5, 3, 2, 1]
-const arr5: number[] = []
-
-console.log(quickSort(arr1))
-console.log(quickSort(arr2))
-console.log(quickSort(arr3))
-console.log(quickSort(arr4))
-console.log(quickSort(arr5))

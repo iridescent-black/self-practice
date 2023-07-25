@@ -1,4 +1,4 @@
-import { concat2SortedArray } from '../concat2SortedArray'
+import { concat2SortedArray } from '../utils/concat2SortedArray'
 
 export function mergeSort(arr: number[]): number[] {
   const arrLength = arr.length

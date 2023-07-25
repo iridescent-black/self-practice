@@ -1,5 +1,6 @@
 {
-  "include": ["./**/*.ts"],
+  "include": ["src/**/*.ts", "test/**/*.spec.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["esNext", "DOM"],
 

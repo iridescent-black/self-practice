@@ -2,7 +2,7 @@
  * @description 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
  * 请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
  */
-function findNumberIn2DArray(matrix: number[][], target: number): boolean {
+export function findNumberIn2DArray(matrix: number[][], target: number): boolean {
   if (!Array.isArray(matrix[0])) return false
   const minX = 0
   const maxY = matrix[0].length - 1
@@ -27,27 +27,3 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
     return isNumberInSub2DMatrix(x, y - 1)
   }
 }
-
-const matrix1 = [
-  [1, 2, 8, 9],
-  [2, 4, 9, 12],
-  [4, 7, 10, 13],
-  [6, 8, 11, 15],
-]
-// 空数组
-const matrix2: number[][] = []
-// 二维空数组
-const matrix3: number[][] = [[]]
-// 只有一行的二维数组
-const matrix4: number[][] = [[1, 2, 3]]
-// 只有一列的二维数组
-const matrix5: number[][] = [[1], [2], [3]]
-
-console.log(findNumberIn2DArray(matrix1, 7)) // true
-console.log(findNumberIn2DArray(matrix1, 0)) // false
-console.log(findNumberIn2DArray(matrix2, 0)) // false
-console.log(findNumberIn2DArray(matrix3, 0)) // false
-console.log(findNumberIn2DArray(matrix4, 1)) // true
-console.log(findNumberIn2DArray(matrix4, 10)) // false
-console.log(findNumberIn2DArray(matrix5, 2)) // true
-console.log(findNumberIn2DArray(matrix5, 20)) // false

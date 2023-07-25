@@ -29,10 +29,3 @@ export function concat2SortedArray(arr1: number[], arr2: number[]): number[] {
 
   return getSortedArray(0, 0)
 }
-
-// const arr1 = [1, 3, 5, 7, 9]
-// const arr2 = [2, 4, 6, 8, 10]
-// const arr3: number[] = []
-
-// console.log(concat2SortedArray(arr1, arr2))
-// console.log(concat2SortedArray(arr3, arr3))

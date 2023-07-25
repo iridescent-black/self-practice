@@ -33,6 +33,3 @@ export function binaryFindIndex<T>(arr: T[], predicate: (value: T) => boolean, o
 
   return _binaryFindIndex({ ...option, prevMatchIndex: -1 })
 }
-
-// const arr = [0, 2, 2, 2, 4]
-// console.log(binaryFindIndex(arr, (value) => value <= 2, { orderReverted: true }))
