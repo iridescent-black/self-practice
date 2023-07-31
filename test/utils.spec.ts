@@ -1,4 +1,4 @@
-import { binaryFindIndex } from '../src/utils'
+import { BinaryFindFallbackDirection, BinaryFindFoundBehavior, binaryFindIndex } from '../src/utils'
 import { test, expect } from '@jest/globals'
 import {
   HeadListNode,
@@ -9,11 +9,32 @@ import {
 } from '../src/utils/reverseList'
 
 test('binaryFindIndex', function () {
-  const testData = [0, 2, 2, 2, 4]
-  const res1 = binaryFindIndex(testData, (value) => value <= 2)
-  const res2 = binaryFindIndex(testData, (value) => value <= 2, { orderReverted: true })
-  expect(res1).toBe(3)
-  expect(res2).toBe(1)
+  const testData = [0, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 5]
+  const testData2 = [4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 0]
+  const isValueBiggerThanTwo = (value: number) => value > 2
+  const isValueSmallThanOrEqualToTwo = (value: number) => value <= 2
+  const testOptionsArray: [
+    number[],
+    (value: number) => boolean,
+    BinaryFindFallbackDirection,
+    BinaryFindFoundBehavior,
+    number,
+  ][] = [
+    [testData, isValueSmallThanOrEqualToTwo, 'left', 'return', 6],
+    [testData, isValueSmallThanOrEqualToTwo, 'left', 'searchLeft', 0],
+    [testData, isValueSmallThanOrEqualToTwo, 'left', 'searchRight', 7],
+    [testData, isValueBiggerThanTwo, 'right', 'return', 9],
+    [testData, isValueBiggerThanTwo, 'right', 'searchLeft', 8],
+    [testData, isValueBiggerThanTwo, 'right', 'searchRight', 11],
+    [testData2, isValueSmallThanOrEqualToTwo, 'right', 'return', 5],
+    [testData2, isValueSmallThanOrEqualToTwo, 'right', 'searchLeft', 3],
+    [testData2, isValueSmallThanOrEqualToTwo, 'right', 'searchRight', 10],
+  ]
+  testOptionsArray.forEach(([array, predicate, fallbackDirection, foundBehavior, expectedRes]) => {
+    expect(binaryFindIndex(array, predicate, { fallbackDirection, foundBehavior })).toBe(
+      expectedRes,
+    )
+  })
 })
 
 test('createListFromArray', function () {
