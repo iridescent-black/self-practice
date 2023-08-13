@@ -1,5 +1,6 @@
 export * from './swap'
 export * from './find'
+export * from './PriorityQueue'
 export * from './createMockData'
 export * from './concat2SortedArray'
 export * from './isNumberIn2DMatrix'
