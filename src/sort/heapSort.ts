@@ -1,4 +1,4 @@
-import { swap } from './swap'
+import { swap } from '../utils'
 
 export function heapSort(arr: number[]) {
   const length = arr.length
@@ -11,6 +11,8 @@ export function heapSort(arr: number[]) {
 
   return arr
 
+  // 大顶堆 root item 是最大值，每次把 rootIndex 和未排序的区间最后一位交换位置
+  // 重新堆化
   function sort() {
     let maxIndex = length - 1
     while (maxIndex > 0) {

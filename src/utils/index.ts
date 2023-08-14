@@ -1,5 +1,5 @@
 export * from './swap'
-export * from './find'
+export * from './binaryFind'
 export * from './PriorityQueue'
 export * from './createMockData'
 export * from './concat2SortedArray'

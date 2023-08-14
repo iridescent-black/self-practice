@@ -1,6 +1,6 @@
 import { test, expect } from '@jest/globals'
 import { createMockNumberArray } from '../src/utils'
-import { heapSort } from '../src/utils/Heap'
+import { heapSort } from '../src/sort/heapSort'
 import { quickSort } from '../src/sort/quickSort'
 
 test('堆排序', function () {
