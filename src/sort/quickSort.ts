@@ -1,15 +1,20 @@
 import { swap } from '../utils'
 
-/** 快速排序 */
+/** 快速排序
+ * - 时间复杂度：O(nlogn)
+ * 主要取决于做了几次 partition 操作，如果每次都取到中间值，那就是 logN 次，如果每次都取到最大或最小值，会退化到 n² 次
+ * - 空间复杂度：O(logN)
+ */
 export function quickSort(arr: number[]): number[] {
   const result = arr.slice()
   if (result.length <= 1) return result
-
   quickSortWithRange(0, result.length - 1)
+
+  return result
 
   function quickSortWithRange(start: number, end: number) {
     if (start >= end) return
-    const targetIndex = Math.floor((start + end) / 2)
+    const targetIndex = Math.floor(start + (end - start) / 2)
     const resultIndex = partition(start, end, targetIndex)
     if (resultIndex > start) quickSortWithRange(start, resultIndex - 1)
     if (resultIndex < end) quickSortWithRange(resultIndex + 1, end)
@@ -32,20 +37,21 @@ export function quickSort(arr: number[]): number[] {
     if (baseValue === undefined) throw new Error('baseValue is undefined')
     // 将基准值放到最后
     swap(result, targetIndex, end)
+    // 记录一下上一个比 baseValue 小的索引。
     let lastSmallIndex = start - 1
 
     for (let i = start; i < end; i++) {
-      if (result[i] === undefined) throw new Error(`result[${i}] is undefined`)
+      // 如果当前索引值大于 baseValue，不动。
       if (result[i]! > baseValue) continue
+      // 如果小于 baseValue，把它和 lastSmallIndex 的下一个值交换位置。
       lastSmallIndex += 1
       if (lastSmallIndex !== i) swap(result, lastSmallIndex, i)
     }
 
+    // 把最后一个值（也就是 baseValue）和 lastSmallIndex 下一个值交换位置
     lastSmallIndex += 1
     swap(result, lastSmallIndex, end)
 
     return lastSmallIndex
   }
-
-  return result
 }

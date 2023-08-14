@@ -1,5 +1,9 @@
 import { createMockNumberArray, swap } from '../utils'
 
+/** 冒泡排序
+ * - 时间复杂度：O(n²)
+ * - 空间复杂度：In-Place
+ */
 export function bubbleSort(arr: number[]) {
   const arrLength = arr.length
   if (arrLength <= 1) return arr

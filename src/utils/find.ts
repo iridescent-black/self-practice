@@ -9,7 +9,7 @@ export interface BinaryFindIndexOption {
    * - left: 向左查找
    * - right: 向右查找
    */
-  fallbackDirection: BinaryFindFallbackDirection
+  fallbackDirection?: BinaryFindFallbackDirection
   /** 发现符合条件的值时，希望执行的操作
    * - return: 停止查找并返回
    * - searchLeft: 继续向左查找下一个符合条件的索引
@@ -23,6 +23,7 @@ export interface BinaryFindIndexOption {
  * 当 `option.orderReverted` 为 `true` 时，返回最小的符合条件的索引。
  * @param arr 有序数组。
  * @param predicate 断言函数，判断传入的值是否符合条件。
+ * @param option @see BinaryFindIndexOption
  */
 export function binaryFindIndex<T>(
   arr: T[],
