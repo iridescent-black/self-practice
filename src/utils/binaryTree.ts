@@ -33,9 +33,9 @@ export class BinaryTree<T> {
     node: BinaryTreeNode<T>,
     action: (node: BinaryTreeNode<T>) => unknown,
   ) {
-    node.left && BinaryTree.preOrderTraversal(node.left, action)
+    node.left && BinaryTree.inOrderTraversal(node.left, action)
     action(node)
-    node.right && BinaryTree.preOrderTraversal(node.right, action)
+    node.right && BinaryTree.inOrderTraversal(node.right, action)
   }
 
   /** 后序遍历 */
