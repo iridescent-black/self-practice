@@ -8,7 +8,6 @@
     "alwaysStrict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "noUncheckedIndexedAccess": true,
 
     "moduleResolution": "node",
     "esModuleInterop": true,

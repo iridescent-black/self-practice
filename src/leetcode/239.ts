@@ -1,4 +1,4 @@
-import { PriorityQueue } from '../src/utils'
+import { PriorityQueue } from '../utils'
 
 /** 滑动窗口最大值 */
 export function maxSlidingWindow(nums: number[], k: number): number[] {

@@ -1,4 +1,4 @@
-import { ListNode } from '../src/list'
+import { ListNode } from '../list'
 
 /** 环形链表
  * @see https://leetcode.cn/problems/linked-list-cycle/description/

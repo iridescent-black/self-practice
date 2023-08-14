@@ -1,5 +1,5 @@
-import { ListNode } from '../src/list'
-import { PriorityQueue } from '../src/utils'
+import { ListNode } from '../list'
+import { PriorityQueue } from '../utils'
 
 /** 合并 K 个升序链表
  * @description 每次都遍历 lists，取值最小的
