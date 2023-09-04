@@ -8,14 +8,15 @@ export class PriorityQueue<T> {
   private heapArray: T[] = []
 
   /**
-   * 优先级队列，按照优先级从小到大排列
-   * @param compareFn 优先级队列比较函数
-   * - 如果返回值小于 0，则 prevItem 优先级低于 nextItem
-   * - 如果返回值等于 0，则 prevItem 优先级等于 nextItem
-   * - 如果返回值大于 0，则 prevItem 优先级高于 nextItem
+   * 优先级队列，优先级最小的元素在堆顶
+   * @param compareFn 优先级队列比较函数，用于判断元素的优先级：
+   * - 如果返回值小于 0，则第一个参数比第二个参数优先级低；
+   * - 如果返回值等于 0，则第一个参数和第二个参数优先级相同；
+   * - 如果返回值大于 0，则第一个参数比第二个参数优先级高；
    */
   public constructor(compareFn: CompareFn<T>) {
     this.compareFn = compareFn
+    this.heapArray.sort
   }
 
   /** 添加元素 */
