@@ -12,15 +12,17 @@ export function quickSort(arr: number[]): number[] {
 
   return result
 
+  /** 对数组 [start, end] 范围内的元素进行快速排序 */
   function quickSortWithRange(start: number, end: number) {
     if (start >= end) return
+    // 不使用 start + end / 2，防止 start + end 大于 Number.MAX_SAFE_INTEGER
     const targetIndex = Math.floor(start + (end - start) / 2)
     const resultIndex = partition(start, end, targetIndex)
     if (resultIndex > start) quickSortWithRange(start, resultIndex - 1)
     if (resultIndex < end) quickSortWithRange(resultIndex + 1, end)
   }
 
-  /** 在 [start, end] 区间内，选择一个索引，改索引对应的值为基准值。
+  /** 在 [start, end] 区间内，选择一个索引，该索引对应的值为基准值。
    * 更改数组，使得基准值左边的值都小于基准值，右边的值都大于基准值。
    * @param start 起始位置
    * @param end 结束位置
