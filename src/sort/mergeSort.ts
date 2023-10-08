@@ -1,6 +1,13 @@
 import { concat2SortedArray } from '../utils/concat2SortedArray'
 
-/** 归并排序 */
+/** 归并排序
+ * - 时间复杂度：O(nlogn)：每次都把数组分成两半，需要 log n 次，每次都需要把两个数组合并成一个数组，需要 n 次
+ * - 空间复杂度：O(n)：把两个数组合并成一个数组，需要额外的空间
+ * - 稳定排序
+ * @description
+ * 为什么一般使用快速排序，而不使用归并排序？
+ * - 归并排序需要额外的空间，快速排序不需要
+ */
 export function mergeSort(arr: number[]): number[] {
   const arrLength = arr.length
   if (arrLength < 2) return arr

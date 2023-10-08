@@ -6,9 +6,9 @@ export function concat2SortedArray<T>(
 ): T[] {
   // 提前开辟好空间，避免递归时频繁开辟空间
   const result = new Array(arr1.length + arr2.length)
-
   const length1 = arr1.length
   const length2 = arr2.length
+
   let p1 = 0
   let p2 = 0
   while (p1 < length1 || p2 < length2) {
