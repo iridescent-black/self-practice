@@ -7,6 +7,7 @@ import { binaryFindIndex } from '../utils'
 export function insertionSort(arr: number[]): number[] {
   if (arr.length <= 1) return arr
   for (let i = 1; i < arr.length; i++) {
+    // 当前插入排序使用的值
     const baseValue = arr[i]
     for (let j = i - 1; j >= 0; j--) {
       const currentValue = arr[j]
