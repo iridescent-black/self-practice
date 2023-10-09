@@ -13,7 +13,7 @@ function threeSum(nums: number[]): number[][] {
     const currentValue = nums[i]
     // 相同的 i 求得的结果中只取最右侧的结果
     if (i > 0 && currentValue === nums[i - 1]) continue
-    // 因为数组从下到大排过序了
+    // 因为数组从小到大排过序了
     // 如果 [i, i + 1, i + 2] 的值和大于 0，那么后面任意三数之和一定大于 0
     // 结束查找
     if (currentValue + nums[i + 1] + nums[i + 2] > 0) break
